@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<project name="Blueprint" default="rebuild">
+
+    <property name="root.folder" value="${directory::get-current-directory()}" />
+    <property name="build.folder" value="${root.folder}/build" />
+    <property name="dist.folder" value="${root.folder}/dist" />
+    <property name="source.folder" value="${root.folder}/src" />
+    <property name="tools.folder" value="${root.folder}/tools" />
+    <property name="configuration" value="debug" unless="${property::exists('configuration')}" />
+    <property name="platform" value="x86" unless="${property::exists('platform')}" />
+    <property name="deployment.location" value="C:\development\deploy"/>
+    <property name="nunit.path" value="${tools.folder}/NUnit-2.5.10.11092/bin/net-2.0"/>
+	<property name="nant.settings.currentframework" value="net-4.0" />
+    <property name="nunit-console" value="${nunit.path}/nunit-console.exe" if="${platform=='x64'}" />
+    <property name="nunit-console" value="${nunit.path}/nunit-console-x86.exe" if="${platform=='x86'}" />
+
+    <loadtasks assembly="${tools.folder}/nantcontrib-0.85/bin/NAnt.Contrib.Tasks.dll" />
+    <loadtasks assembly="${tools.folder}/macrodef/Macrodef.dll" />
+
+    <macrodef name="get.property">
+        <attributes>
+            <attribute name="name"/>
+            <attribute name="from"/>            
+            <attribute name="default"/>
+        </attributes>
+
+        <sequential>
+            <property name="${name}" value="${default}"/>
+            <property name="${name}" value="${environment::get-variable(name)}" if="${environment::variable-exists(name)}"/>
+        </sequential>
+    </macrodef>
+
+    <target name="get.os.version" >
+        <property name="machine.os" value="${environment::get-operating-system()}" />
+        <property name="machine.version" value="${operating-system::get-version(environment::get-operating-system())}" />
+        <echo message="${machine.os} => ${machine.version}" />
+    </target>
+
+    <target name="configure.environment" depends="get.os.version" >
+        <get.property name="build.number" from="GO_PIPELINE_COUNTER" default="0"/>
+        <get.property name="scm.revision" from="GO_REVISION_MERCURIAL-Blueprint" default="0"/>
+
+        <property name="deployment.location" value="C:\development\deploy\Blueprint\version\${build.number}"/>
+
+        <echo message="Build Number is: ${build.number}"/>
+        <echo message="SCM Revision is: ${scm.revision}"/>
+    </target>
+
+    <target name="clean" description="Delete all previously compiled binaries.">
+        <msbuild project="${root.folder}/Blueprint.sln" target="clean"/>
+    </target>
+
+    <target name="build" description="Build all targets." depends="configure.environment">
+        <msbuild project="${root.folder}/Blueprint.sln"/>
+    </target>
+
+	<target name="tests">
+		<exec program="${nunit-console}">
+			<arg value="${source.folder}/Blueprint.Tests/bin/${configuration}/Blueprint.Tests.dll" />
+			<arg value="/framework=4.0" />
+			<arg value="/xml=${source.folder}/Blueprint.Tests/bin/${configuration}/TestResult.xml" />
+		</exec>        
+	</target>
+
+    <target name="package">
+        <zip zipfile="${dist.folder}\Blueprint.zip">
+            <fileset basedir="${source.folder}\Blueprint">
+                <include name="**/*/"/>
+            </fileset>
+        </zip>
+    </target>
+
+    <target name="fetch.artifacts">
+        <property name="deployable.artifact" value="${dist.folder}\Blueprint.zip"/>    
+    </target>
+
+    <target name="deploy" depends="configure.environment, fetch.artifacts">
+        <unzip zipfile="${deployable.artifact}" todir="${deployment.location}"/>
+        <mkiisdir dirpath="${deployment.location}" vdirname="Blueprint-live"/>    
+    </target>
+
+    <target name="test" description="Run unit tests" depends="tests" />
+
+    <target name="rebuild" depends="clean, build, test" />
+
+</project>

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Web", "src\Blueprint.Web\Blueprint.Web.csproj", "{E8EA468B-6AAB-45B9-9980-39D8BA0D1F78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blueprint.Tests", "src\Blueprint.Tests\Blueprint.Tests.csproj", "{59537F05-0308-488F-94BF-FB1CD5700839}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{C6C278F4-4260-4AE8-A21B-63C741888EEE}"
+	ProjectSection(SolutionItems) = preProject
+		blueprint.build = blueprint.build
+		run.bat = run.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8EA468B-6AAB-45B9-9980-39D8BA0D1F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8EA468B-6AAB-45B9-9980-39D8BA0D1F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8EA468B-6AAB-45B9-9980-39D8BA0D1F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8EA468B-6AAB-45B9-9980-39D8BA0D1F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59537F05-0308-488F-94BF-FB1CD5700839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59537F05-0308-488F-94BF-FB1CD5700839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59537F05-0308-488F-94BF-FB1CD5700839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59537F05-0308-488F-94BF-FB1CD5700839}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
