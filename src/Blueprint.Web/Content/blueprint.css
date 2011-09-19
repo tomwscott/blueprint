@@ -73,3 +73,10 @@ textarea
 {
     display: none;
 }
+
+.page
+{        
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
