@@ -31,6 +31,3 @@ AutoTest.config
 build/
 Output
 *.zip
-
-/version.txt
-/src/Plasma.Core/Properties/VersionInfo.cs
