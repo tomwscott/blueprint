@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Blueprint.Web.Configuration;
 
 namespace Blueprint.Web
 {
@@ -29,6 +30,7 @@ namespace Blueprint.Web
         {
             AreaRegistration.RegisterAllAreas();
 
+            ControllerBuilder.Current.SetControllerFactory(new ContainerControllerFactory(ApplicationConfiguration.Instance));
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
