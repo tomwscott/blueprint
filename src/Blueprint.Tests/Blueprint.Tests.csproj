@@ -59,16 +59,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceptance\AcceptanceTestInitialisation.cs" />
+    <Compile Include="Acceptance\DefaultAcceptanceTests.cs" />
+    <Compile Include="Journey\BasicJourneyTests.cs" />
+    <Compile Include="Journey\JourneyInitialisation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Support\Browser.cs" />
+    <Compile Include="Support\Page.cs" />
+    <Compile Include="Support\Pages\DefaultPage.cs" />
+    <Compile Include="Support\Plasma\PlasmaDriver.cs" />
     <Compile Include="Support\Stubs\StubClock.cs" />
     <Compile Include="Support\ViewResultExtensions.cs" />
+    <Compile Include="Support\Web\FirefoxWebDriver.cs" />
     <Compile Include="Unit\Controllers\DefaultControllerTests.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Acceptance\" />
-    <Folder Include="Journey\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Blueprint.Web\Blueprint.Web.csproj">
       <Project>{E8EA468B-6AAB-45B9-9980-39D8BA0D1F78}</Project>
