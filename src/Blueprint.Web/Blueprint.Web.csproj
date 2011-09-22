@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Clock.cs" />
+    <Compile Include="Services\IQuotesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

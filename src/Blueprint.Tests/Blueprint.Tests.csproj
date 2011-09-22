@@ -73,6 +73,7 @@
     <Compile Include="Support\ViewResultExtensions.cs" />
     <Compile Include="Support\Web\FirefoxWebDriver.cs" />
     <Compile Include="Unit\Controllers\DefaultControllerTests.cs" />
+    <Compile Include="Unit\Controllers\QuotesControllerTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

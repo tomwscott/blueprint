@@ -10,8 +10,14 @@ namespace Blueprint.Tests.Journey
         [Test]
         public void ShouldDisplayAListOfQuotes()
         {
+            // Given
+            // in the repository store 5 quotes
+
+            // When
             var page = Browser.Current.NavigateTo<QuotesPage>();
-            Assert.That(page.Quotes.Count, Is.GreaterThan(0));
+            
+            // Then
+            Assert.That(page.Quotes.Count, Is.EqualTo(5));
         } 
     }
 }
