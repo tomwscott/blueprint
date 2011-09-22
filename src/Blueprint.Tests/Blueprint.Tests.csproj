@@ -63,6 +63,7 @@
     <Compile Include="Acceptance\DefaultAcceptanceTests.cs" />
     <Compile Include="Journey\BasicJourneyTests.cs" />
     <Compile Include="Journey\JourneyInitialisation.cs" />
+    <Compile Include="Journey\QuotesJourneyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Support\Browser.cs" />
     <Compile Include="Support\Page.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Support\ViewResultExtensions.cs" />
     <Compile Include="Support\Web\FirefoxWebDriver.cs" />
     <Compile Include="Unit\Controllers\DefaultControllerTests.cs" />
+    <Compile Include="Unit\Controllers\QuotesControllerTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

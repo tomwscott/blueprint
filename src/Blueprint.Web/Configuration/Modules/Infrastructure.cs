@@ -22,6 +22,7 @@ namespace Blueprint.Web.Configuration.Modules
         public void RegisterDependencies(SimpleContainer container)
         {
             container.Register<DefaultController>();
+            container.Register<QuotesController>();
             container.Register<IClock, Clock>();
         }
     }
