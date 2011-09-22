@@ -4,7 +4,7 @@ namespace Blueprint.Tests.Support
 {
     public class Page<SpecificPage> where SpecificPage : Page<SpecificPage>
     {
-        private readonly Browser.Driver driver;
+        protected readonly Browser.Driver driver;
         private readonly string location;
 
         protected Page(Browser.Driver driver, string location)
