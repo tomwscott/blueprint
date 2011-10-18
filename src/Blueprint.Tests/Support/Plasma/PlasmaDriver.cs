@@ -23,6 +23,11 @@ namespace Blueprint.Tests.Support.Plasma
             currentResponse = webApplication.ProcessRequest(location);
         }
 
+        public void Execute(string script)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IWebDriver Dom
         {
             get { return new PlasmaDom(currentResponse); }

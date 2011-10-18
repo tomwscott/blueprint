@@ -14,7 +14,18 @@ namespace Blueprint.Tests.Support.Pages
 
         public ICollection<IWebElement> Quotes
         {
-            get { return driver.Dom.FindElements(By.ClassName("quotes")); }
+            get { return driver.Dom.FindElements(By.ClassName("quote") ); }
+        }
+
+        public string WibbleText
+        {
+            get { return driver.Dom.FindElement(By.ClassName("wibble")).Text; }
+        }
+
+
+        public void Alert()
+        {
+            driver.Execute("document.write('<p class=\"wibble\">Hello World</p>'); alert('done!');");
         }
     }
 

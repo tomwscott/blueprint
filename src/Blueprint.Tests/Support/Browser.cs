@@ -30,6 +30,7 @@ namespace Blueprint.Tests.Support
         {
             IWebDriver Dom { get; }
             void NavigateTo(string location);
+            void Execute(string script);
         }
 
         public static void Close()

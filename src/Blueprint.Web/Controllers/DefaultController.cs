@@ -13,9 +13,16 @@ namespace Blueprint.Web.Controllers
             this.clock = clock;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View(new DefaultViewModel(clock.Now));
+        }
+
+        [HttpGet]
+        public ActionResult Wibble()
+        {
+            return View();
         }
 
     }

@@ -24,6 +24,7 @@ namespace Blueprint.Web.Configuration.Modules
             container.Register<DefaultController>();
             container.Register<QuotesController>();
             container.Register<IClock, Clock>();
+            container.Register<IQuotesRepository, QuotesRepository>();
         }
     }
 }

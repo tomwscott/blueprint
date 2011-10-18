@@ -15,7 +15,11 @@ namespace Blueprint.Tests.Journey
 
             // When
             var page = Browser.Current.NavigateTo<QuotesPage>();
-            
+
+            page.Alert();
+
+            Assert.That(page.WibbleText, Is.EqualTo("Hello World"));
+
             // Then
             Assert.That(page.Quotes.Count, Is.EqualTo(5));
         } 

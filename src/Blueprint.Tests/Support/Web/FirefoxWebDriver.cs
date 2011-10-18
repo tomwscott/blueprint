@@ -22,6 +22,11 @@ namespace Blueprint.Tests.Support.Web
             driver.Navigate().GoToUrl("http://localhost/blueprint" + location);
         }
 
+        public void Execute(string script)
+        {
+            driver.ExecuteScript(script);
+        }
+
         public void Dispose()
         {
             driver.Close();

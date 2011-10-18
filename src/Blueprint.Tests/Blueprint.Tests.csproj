@@ -74,6 +74,8 @@
     <Compile Include="Support\Web\FirefoxWebDriver.cs" />
     <Compile Include="Unit\Controllers\DefaultControllerTests.cs" />
     <Compile Include="Unit\Controllers\QuotesControllerTests.cs" />
+    <Compile Include="Unit\PuppetTests.cs" />
+    <Compile Include="Unit\RectangleTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

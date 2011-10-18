@@ -12,6 +12,8 @@ namespace Blueprint.Tests.Acceptance
         {
             var page = Browser.Current.NavigateTo<DefaultPage>();
             Assert.That(page.Title, Is.EqualTo("Default View"));
+
+//            Assert.That(page.Time, Is.EqualTo(someTimeThatISet));
         }
     }
 }
